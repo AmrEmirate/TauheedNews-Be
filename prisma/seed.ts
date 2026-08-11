@@ -1,3 +1,5 @@
+/// <reference types="node" />
+declare const process: any;
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
