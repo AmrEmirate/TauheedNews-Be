@@ -6,6 +6,7 @@ import categoriesRouter from './routes/categories';
 import searchRouter from './routes/search';
 import kajianRouter from './routes/kajian';
 import mediaRouter from './routes/media';
+import translateRouter from './routes/translate';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use('/api/categories', categoriesRouter);
 app.use('/api/search', searchRouter);
 app.use('/api/kajian', kajianRouter);
 app.use('/api/media', mediaRouter);
+app.use('/api/translate', translateRouter);
 
 // Healthcheck
 app.get('/api/health', (req, res) => {
