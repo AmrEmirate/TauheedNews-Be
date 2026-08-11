@@ -87,8 +87,9 @@ router.get('/lookup', async (req: Request, res: Response) => {
     const cleanText = text.trim();
     const targetLang = (lang === 'ar' || lang === 'en') ? lang : 'en';
 
-    // 1. Search for exact or contains text match in original articles (title, excerpt)
-    const article = await prisma.article.findFirst({
+    // 1. Search for exact, insensitive, or contains match in original articles
+    const cleanLower = cleanText.toLowerCase();
+    let article = await prisma.article.findFirst({
       where: {
         OR: [
           { title: { equals: cleanText, mode: 'insensitive' } },
@@ -102,13 +103,32 @@ router.get('/lookup', async (req: Request, res: Response) => {
       },
     });
 
+    if (!article) {
+      // Secondary search using contains for titles with special quotes/characters
+      article = await prisma.article.findFirst({
+        where: {
+          OR: [
+            { title: { contains: cleanText.slice(0, 20), mode: 'insensitive' } },
+            { excerpt: { contains: cleanText.slice(0, 20), mode: 'insensitive' } },
+          ],
+        },
+        include: {
+          translations: {
+            where: { language: targetLang },
+          },
+        },
+      });
+    }
+
     if (article && article.translations.length > 0) {
       const translation = article.translations[0];
-      if (article.title.toLowerCase() === cleanText.toLowerCase()) {
-        return res.json({ translatedText: translation.title });
-      }
-      if (article.excerpt.toLowerCase() === cleanText.toLowerCase()) {
+      // Check if cleanText is excerpt (longer text) vs title
+      const isExcerpt = cleanText.length > 50 && article.excerpt.length > 30;
+      if (isExcerpt && translation.excerpt) {
         return res.json({ translatedText: translation.excerpt });
+      }
+      if (translation.title) {
+        return res.json({ translatedText: translation.title });
       }
     }
 
