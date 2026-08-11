@@ -1,0 +1,80 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  password  String
+  role      String    @default("AUTHOR")
+  articles  Article[]
+  createdAt DateTime  @default(now())
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  slug      String    @unique
+  articles  Article[]
+}
+
+model Article {
+  id            Int       @id @default(autoincrement())
+  title         String
+  slug          String    @unique
+  content       String
+  excerpt       String
+  coverImage    String?
+  
+  // Flagging Penempatan Konten
+  isHeadline    Boolean   @default(false)
+  isFeature     Boolean   @default(false)
+  isFixedAdvice Boolean   @default(false)
+  
+  status        String    @default("DRAFT")
+  
+  // Relasi
+  authorId      Int
+  author        User      @relation(fields: [authorId], references: [id])
+  categoryId    Int
+  category      Category  @relation(fields: [categoryId], references: [id])
+  
+  views         Int       @default(0)
+  
+  // Penjadwalan & Jejak Waktu
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  publishedAt   DateTime?
+}
+
+model Kajian {
+  id          Int      @id @default(autoincrement())
+  title       String
+  speaker     String
+  location    String
+  dateTime    String
+  topic       String
+  image       String?
+  isUpcoming  Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model Media {
+  id          Int      @id @default(autoincrement())
+  title       String
+  speaker     String
+  videoUrl    String
+  duration    String
+  category    String
+  thumbnail   String?
+  createdAt   DateTime @default(now())
+}
+
