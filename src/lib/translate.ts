@@ -12,7 +12,7 @@ function delay(ms: number): Promise<void> {
  * Translate a single text string using Google GTX API (free, no API key needed).
  * Handles chunking for long texts automatically.
  */
-async function translateText(
+export async function translateText(
   text: string,
   targetLang: TargetLanguage,
   sourceLang: string = 'id'

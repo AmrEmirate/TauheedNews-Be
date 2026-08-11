@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import {
+  translateText,
   translateArticleToAllLanguages,
   translateAllUntranslated,
   getTranslationStatus,
@@ -72,6 +73,7 @@ router.get('/status', async (req: Request, res: Response) => {
  * GET /api/translate/lookup?text=...&lang=en|ar
  * Look up a pre-stored translation for a given text.
  * Searches article translations for matching title, excerpt, or content.
+ * Falls back to dynamic translateText if no DB record found.
  */
 router.get('/lookup', async (req: Request, res: Response) => {
   try {
@@ -83,35 +85,36 @@ router.get('/lookup', async (req: Request, res: Response) => {
     }
 
     const cleanText = text.trim();
+    const targetLang = (lang === 'ar' || lang === 'en') ? lang : 'en';
 
-    // Search for this text in original articles (title, excerpt)
+    // 1. Search for exact or contains text match in original articles (title, excerpt)
     const article = await prisma.article.findFirst({
       where: {
         OR: [
-          { title: cleanText },
-          { excerpt: cleanText },
+          { title: { equals: cleanText, mode: 'insensitive' } },
+          { excerpt: { equals: cleanText, mode: 'insensitive' } },
         ],
       },
       include: {
         translations: {
-          where: { language: lang },
+          where: { language: targetLang },
         },
       },
     });
 
     if (article && article.translations.length > 0) {
       const translation = article.translations[0];
-      // Return the matching translated field
-      if (article.title === cleanText) {
+      if (article.title.toLowerCase() === cleanText.toLowerCase()) {
         return res.json({ translatedText: translation.title });
       }
-      if (article.excerpt === cleanText) {
+      if (article.excerpt.toLowerCase() === cleanText.toLowerCase()) {
         return res.json({ translatedText: translation.excerpt });
       }
     }
 
-    // No pre-stored translation found
-    return res.json({ translatedText: '' });
+    // 2. Fallback: Translate dynamically via Google GTX server-side
+    const translated = await translateText(cleanText, targetLang);
+    return res.json({ translatedText: translated || cleanText });
   } catch (error) {
     console.error('[Translate Route] Lookup error:', error);
     res.status(500).json({ error: 'Internal server error' });

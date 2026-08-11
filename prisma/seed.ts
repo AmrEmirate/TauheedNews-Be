@@ -593,6 +593,16 @@ async function main() {
     ],
   });
 
+  console.log('Seeding completed for articles, kajians, and media.');
+  console.log('Starting auto-translation for all articles (EN & AR)...');
+  try {
+    const { translateAllUntranslated } = await import('../src/lib/translate');
+    const result = await translateAllUntranslated();
+    console.log(`Auto-translation complete: ${result.translated} translated, ${result.failed} failed out of ${result.total} total.`);
+  } catch (err) {
+    console.error('Auto-translation during seed failed:', err);
+  }
+
   console.log('Database seeding completed successfully!');
 }
 
