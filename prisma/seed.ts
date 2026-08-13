@@ -50,12 +50,196 @@ async function main() {
     prisma.category.create({ data: { name: 'Haramain News', slug: 'haramain-news' } }),
     prisma.category.create({ data: { name: 'Dunia Islam', slug: 'dunia-islam' } }),
     prisma.category.create({ data: { name: 'Analisis & Klarifikasi', slug: 'analisis-klarifikasi' } }),
+    prisma.category.create({ data: { name: 'Saudi Arabia Terkini', slug: 'saudi-arabia-terkini' } }),
+    prisma.category.create({ data: { name: 'Diplomasi & Kerja Sama', slug: 'diplomasi-kerja-sama' } }),
+    prisma.category.create({ data: { name: 'Bantuan Kemanusiaan', slug: 'bantuan-kemanusiaan' } }),
+    prisma.category.create({ data: { name: 'Vision 2030 & Proyek', slug: 'vision-2030-proyek' } }),
   ]);
 
   const catMap = new Map(categories.map((c) => [c.slug, c.id]));
 
-  console.log('Seeding 30+ authentic articles...');
+  console.log('Seeding 35+ authentic articles...');
   const articlesData = [
+    {
+      title: 'Saudi Pimpin KTT Arab-Islam Bahas Gaza dan Masa Depan Palestina',
+      slug: 'saudi-pimpin-ktt-arab-islam-bahas-gaza-dan-masa-depan-palestina',
+      excerpt: 'Riyadh menjadi tuan rumah KTT gabungan luar biasa negara-negara Arab dan Islam untuk membahas agresi di Gaza serta mengadvokasi solusi dua negara.',
+      content: `
+<p>Riyadh – Kerajaan Arab Saudi kembali menguatkan peran kepemimpinannya di Dunia Islam dengan menjadi tuan rumah perhelatan Konferensi Tingkat Tinggi (KTT) Luar Biasa Gabungan Arab-Islam yang dihadiri oleh para pemimpin negara anggota Organisasi Kerja Sama Islam (OKI/OIC) dan Liga Arab.</p>
+
+<p>Pertemuan puncak di Riyadh tersebut secara khusus menggalang persatuan dan inisiatif diplomatik ketat untuk menghentikan agresi militer di Gaza, menjamin distribusi bantuan kemanusiaan tanpa hambatan, serta memperjuangkan hak-hak kemerdekaan rakyat Palestina.</p>
+
+<div class="arabic-block bg-news-gray p-4 my-4 border-r-4 border-brass-gold text-right font-arabic text-2xl leading-loose">
+وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ ۖ وَلَا تَتَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ
+</div>
+<p class="italic text-sm text-outline mb-4">"Dan tolong-menolonglah kamu dalam (mengerjakan) kebajikan dan takwa, dan jangan tolong-menolong dalam berbuat dosa dan permusuhan." (QS. Al-Ma'idah: 2)</p>
+
+<h3>1. Konsolidasi Kekuatan dan Diplomasi Tingkat Tinggi</h3>
+<p>KTT Arab-Islam di Riyadh berhasil melahirkan Resolusi Bersama yang menginstruksikan pembentukan komite khusus menteri luar negeri untuk berkeliling ke berbagai ibu kota negara anggota Dewan Keamanan PBB dan pusat diplomasi global.</p>
+
+<h3>2. Dorongan Terhadap Solusi Dua Negara</h3>
+<p>Arab Saudi menegaskan bahwa perdamaian yang adil dan berkelanjutan di Timur Tengah tidak akan pernah tercapai tanpa diakuinya Negara Palestina yang merdeka sesuai dengan garis batas 1967 dan beribu kota di Yerusalem Timur (Al-Quds Ash-Sharif).</p>
+      `,
+      coverImage: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80',
+      isHeadline: true,
+      isFeature: true,
+      isFixedAdvice: false,
+      status: 'PUBLISHED',
+      authorId: adminUser.id,
+      categoryId: catMap.get('saudi-arabia-terkini')!,
+      views: 5240,
+      createdAt: new Date('2026-08-12T10:00:00Z'),
+    },
+    {
+      title: 'Peran Komite Menteri Arab-Islam Dipimpin Saudi dalam Mengadvokasi Solusi Dua Negara',
+      slug: 'peran-komite-menteri-arab-islam-dipimpin-saudi-advokasi-solusi-dua-negara',
+      excerpt: 'Kerajaan Arab Saudi memimpin Komite Menteri Arab-Islam yang menggalang dukungan internasional serta mendorong pengakuan global bagi Palestina.',
+      content: `
+<p>Riyadh – Komite Menteri Luar Negeri Arab-Islam yang dibentuk atas keputusan KTT Luar Biasa di Riyadh dan dipimpin oleh Arab Saudi terus bergerak aktif menggalang dukungan internasional di PBB, Eropa, dan Asia.</p>
+
+<p>Komite menteri ini secara terpadu mengadvokasi percepatan solusi dua negara (Two-State Solution) sebagai satu-satunya jalan keluar yang sah dan berkeadilan bagi konflik di kawasan tersebut.</p>
+
+<h3>1. Penggalangan Dukungan Pengakuan Internasional</h3>
+<p>Langkah diplomasi komite ini berhasil mendorong bertambahnya negara-negara di dunia yang secara resmi mengakui kedaulatan Negara Palestina, sekaligus menyerukan gencatan senjata permanen dan penegakan hukum internasional di Gaza.</p>
+
+<h3>2. Penyediaan Akses Kemanusiaan Tanpa Syarat</h3>
+<p>Selain diplomasi politik, Saudi menekankan pentingnya pembukaan koridor kemanusiaan secara berkelanjutan guna memastikan makanan, obat-obatan, dan kebutuhan dasar sampai ke seluruh warga terdampak di Gaza.</p>
+      `,
+      coverImage: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80',
+      isHeadline: false,
+      isFeature: true,
+      isFixedAdvice: false,
+      status: 'PUBLISHED',
+      authorId: editorUser.id,
+      categoryId: catMap.get('dunia-islam')!,
+      views: 4120,
+      createdAt: new Date('2026-08-11T14:30:00Z'),
+    },
+    {
+      title: 'KSrelief Salurkan Bantuan Kemanusiaan Saudi ke Lebih dari 100 Negara Muslim',
+      slug: 'ksrelief-salurkan-bantuan-kemanusiaan-saudi-ke-lebih-dari-100-negara-muslim',
+      excerpt: 'Melalui King Salman Humanitarian Aid and Relief Centre (KSrelief), Arab Saudi telah menyalurkan bantuan kemanusiaan ke puluhan negara Muslim lewat ribuan proyek hingga 2026.',
+      content: `
+<p>Riyadh – Pusat Bantuan Kemanusiaan dan Pertolongan Raja Salman (KSrelief / King Salman Humanitarian Aid and Relief Centre) mencatatkan rekor baru dalam jangkauan operasional kemanusiaan secara global.</p>
+
+<p>Hingga tahun 2026, KSrelief telah menyalurkan bantuan kemanusiaan bernilai miliaran dolar AS yang mencakup lebih dari 100 negara di seluruh dunia, khususnya negara-negara Muslim dan berkembang yang mengalami bencana alam serta krisis kemanusiaan.</p>
+
+<h3>1. Ribuan Proyek Kemanusiaan Berkelanjutan</h3>
+<p>Program bantuan KSrelief berfokus pada ketahanan pangan, sektor kesehatan, pembangunan air bersih, perlindungan anak, serta tempat tinggal darurat bagi pengungsi di Gaza, Sudan, Yaman, hingga kawasan Afrika dan Asia.</p>
+
+<h3>2. Prinsip Kemanusiaan Tanpa Diskriminasi</h3>
+<p>Penyaluran bantuan dilakukan dengan koordinasi bersama badan-badan PBB dan lembaga internasional, menegaskan peran kepedulian sosial Kerajaan Arab Saudi terhadap umat Islam dan kemanusiaan global.</p>
+      `,
+      coverImage: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1200&q=80',
+      isHeadline: false,
+      isFeature: true,
+      isFixedAdvice: false,
+      status: 'PUBLISHED',
+      authorId: adminUser.id,
+      categoryId: catMap.get('bantuan-kemanusiaan')!,
+      views: 3890,
+      createdAt: new Date('2026-08-10T09:15:00Z'),
+    },
+    {
+      title: 'Stabilitas Timur Tengah: Saudi Dorong Penyelesaian Konflik Suriah dan Yaman',
+      slug: 'stabilitas-timur-tengah-saudi-dorong-penyelesaian-konflik-suriah-dan-yaman',
+      excerpt: 'Arab Saudi aktif memimpin upaya penyelesaian konflik di Suriah dan Yaman, mendorong reintegrasi diplomatik Arab, serta mendukung rekonstruksi pascaperang.',
+      content: `
+<p>Riyadh – Dalam rangka menciptakan stabilitas dan keharmonisan di kawasan Timur Tengah, Kerajaan Arab Saudi terus mendorong resolusi damai atas berbagai konflik politik dan militer di kawasan, termasuk di Suriah dan Yaman.</p>
+
+<p>Saudi memainkan peran proaktif dalam memfasilitasi dialog internasional, mendorong kembalinya Suriah ke dalam lingkungan diplomatik Liga Arab, serta mengawal proses rekonsiliasi nasional demi kesejahteraan masyarakat terdampak.</p>
+
+<h3>1. Mediasi Diplomasi dan Rekonsiliasi</h3>
+<p>Melalui diplomasi yang inklusif, Kerajaan memfasilitasi perundingan guna mengakhiri pertikaian bersenjata dan mengembalikan keamanan yang kondusif di kawasan terpencil Yaman dan kota-kota di Suriah.</p>
+
+<h3>2. Rekonstruksi Pasca-Konflik dan Pembangunan Ekonomi</h3>
+<p>Saudi juga menginisiasi bantuan ekonomi dan program rekonstruksi infrastruktur pascaperang, memulihkan fasilitas umum seperti sekolah, rumah sakit, serta sarana transportasi demi masa depan generasi muda di kawasan.</p>
+      `,
+      coverImage: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80',
+      isHeadline: false,
+      isFeature: false,
+      isFixedAdvice: false,
+      status: 'PUBLISHED',
+      authorId: editorUser.id,
+      categoryId: catMap.get('dunia-islam')!,
+      views: 3450,
+      createdAt: new Date('2026-08-09T16:00:00Z'),
+    },
+    {
+      title: 'Saudi, Turki, dan Pakistan Tandatangani Perjanjian Pertahanan Bersama',
+      slug: 'saudi-turki-dan-pakistan-tandatangani-perjanjian-pertahanan-bersama',
+      excerpt: 'Tiga negara Muslim besar – Arab Saudi, Turki, dan Pakistan – menyepakati perjanjian kerja sama pertahanan strategis demi memperkuat ketahanan kawasan.',
+      content: `
+<p>Riyadh – Langkah bersejarah tercipta dengan ditandatanganinya perjanjian kerja sama pertahanan trilateral antara Kerajaan Arab Saudi, Republik Turki, dan Republik Islam Pakistan.</p>
+
+<p>Kesepakatan ini bertujuan memperkuat ketahanan pertahanan bersama, alih teknologi keamanan, latihan militer terpadu, serta koordinasi strategis di antara negara-negara Muslim terbesar di dunia.</p>
+
+<h3>1. Penguatan Industri Pertahanan dan Keamanan Usaha Bersama</h3>
+<p>Perjanjian ini mencakup investasi bersama dalam industri pertahanan modern, riset teknologi militer mutakhir, dan alih pengetahuan guna membangun kemandirian pertahanan di dunia Islam.</p>
+
+<h3>2. Menjaga Keseimbangan dan Perdamaian Regional</h3>
+<p>Kerja sama keamanan ini menjadi pilar penting dalam menjaga keseimbangan strategis, mencegah potensi ancaman geopolitik, dan memastikan stabilitas keamanan di Timur Tengah dan Asia Selatan.</p>
+      `,
+      coverImage: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80',
+      isHeadline: false,
+      isFeature: true,
+      isFixedAdvice: false,
+      status: 'PUBLISHED',
+      authorId: adminUser.id,
+      categoryId: catMap.get('diplomasi-kerja-sama')!,
+      views: 4670,
+      createdAt: new Date('2026-08-08T11:20:00Z'),
+    },
+    {
+      title: 'Pengelolaan Haramain dan Pelayanan Jutaan Jamaah Haji dan Umrah Oleh Saudi',
+      slug: 'pengelolaan-haramain-dan-pelayanan-jutaan-jamaah-haji-dan-umrah-oleh-saudi',
+      excerpt: 'Pengelolaan Masjidil Haram dan Masjid Nabawi terus ditingkatkan melalui mega proyek perluasan fasilitas dan pelayanan haji-umrah kelas dunia.',
+      content: `
+<p>Makkah Al-Mukarramah & Madinah Al-Munawwarah – Sebagai Khadimul Haramain Asy-Syarifain (Pelayan Dua Kota Suci), Kerajaan Arab Saudi mendedikasikan perhatian penuh terhadap kemakmuran dan kenyamanan Masjidil Haram serta Masjid Nabawi.</p>
+
+<p>Setiap tahunnya, jutaan jamaah haji dan umrah dari seluruh pelosok dunia menikmati peningkatan kualitas fasilitas, sistem pendingin udara otomatis, transportasi cepat Kereta Haramain, serta pendistribusian air Zamzam berbasis smart-robotics.</p>
+
+<h3>1. Proyek Perluasan Raksasa Dua Masjid Suci</h3>
+<p>Pemerintah Saudi terus mengawal pembangunan perluasan area shalat di Masjidil Haram Makkah dan Masjid Nabawi Madinah, mampu menampung lebih dari 2,5 juta jamaah secara bersamaan dalam kondisi aman dan nyaman.</p>
+
+<h3>2. Digitalisasi Layanan Haji dan Umrah</h3>
+<p>Aplikasi smart-hajj, izin umrah otomatis, hingga penataan alur tawaf dan sa'i berteknologi tinggi diperkenalkan untuk memastikan setiap jamaah dapat menjalankan ibadah sesuai tuntunan syariat dengan khusyuk.</p>
+      `,
+      coverImage: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
+      isHeadline: false,
+      isFeature: true,
+      isFixedAdvice: false,
+      status: 'PUBLISHED',
+      authorId: scholarUser.id,
+      categoryId: catMap.get('haramain-news')!,
+      views: 4980,
+      createdAt: new Date('2026-08-07T08:45:00Z'),
+    },
+    {
+      title: 'Diplomasi Internasional Saudi: Menggabungkan Energi, Bantuan, dan Pengaruh Islam',
+      slug: 'diplomasi-internasional-saudi-menggabungkan-energi-bantuan-dan-pengaruh-islam',
+      excerpt: 'Berbagai kajian internasional menyoroti efektivitas diplomasi luar negeri Arab Saudi yang mensinergikan bantuan kemanusiaan, energi, dan kepemimpinan Islam.',
+      content: `
+<p>Riyadh – Dalam beberapa tahun terakhir, Arab Saudi semakin intens menjadi pusat perundingan dan mediation internasional bagi berbagai isu ketahanan pangan, perdamaian, dan stabilitas global.</p>
+
+<p>Sejumlah analisis dan riset internasional menyebutkan bahwa Saudi berhasil mengoptimalkan diplomasi soft power dengan memadukan posisi strategis energi dunia, bantuan kemanusiaan KSrelief, dan pengaruh keagamaan sebagai pengayom Umat Islam.</p>
+
+<h3>1. Pusat Perundingan Diplomasi Global</h3>
+<p>Kota Riyadh dan Jeddah kini kerap menjadi tuan rumah berbagai negosiasi perdamaian dunia, termasuk pertemuan gencatan senjata dan konsolidasi internasional antara kekuatan barat, Asia, dan dunia berkembang.</p>
+
+<h3>2. Memperluas Kontribusi Global</h3>
+<p>Sinergi antara visi pembangunan nasional Vision 2030 dan kebijakan luar negeri yang aktif menempatkan Saudi sebagai pilar utama pembangun peradaban Islam yang moderat, maju, dan berpengaruh di kancah internasional.</p>
+      `,
+      coverImage: 'https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=1200&q=80',
+      isHeadline: false,
+      isFeature: false,
+      isFixedAdvice: false,
+      status: 'PUBLISHED',
+      authorId: adminUser.id,
+      categoryId: catMap.get('saudi-arabia-terkini')!,
+      views: 3760,
+      createdAt: new Date('2026-08-06T13:10:00Z'),
+    },
     {
       title: 'Peran Tauhid dalam Membangun Peradaban Islam',
       slug: 'peran-tauhid-dalam-membangun-peradaban-islam',
@@ -75,7 +259,7 @@ async function main() {
 <p>Peradaban yang dibangun di atas tauhid senantiasa menjunjung keadilan dan kesetaraan. Tidak ada keunggulan suatu bangsa atas bangsa lain kecuali dengan ketakwaan.</p>
       `,
       coverImage: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1200&q=80',
-      isHeadline: true,
+      isHeadline: false,
       isFeature: false,
       isFixedAdvice: false,
       status: 'PUBLISHED',
