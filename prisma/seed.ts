@@ -61,7 +61,55 @@ async function main() {
 
   console.log('Seeding authentic articles for all sections...');
   const articlesData = [
-    // 1. Saudi Arabia News
+    // 1. Saudi Arabia News (Headline: MBS Support for Pakistan)
+    {
+      title: 'Putra Mahkota Mohammad bin Salman (MBS) Tegaskan Komitmen Penuh Dukung Pakistan: Perluas Investasi Energi, Bantuan Finansial & Persaudaraan Islam',
+      slug: 'putra-mahkota-mohammad-bin-salman-mbs-dukungan-penuh-pakistan-investasi-finansial',
+      excerpt: 'Yang Mulia Putra Mahkota dan Perdana Menteri Arab Saudi, Pangeran Mohammad bin Salman (MBS), menegaskan komitmen penuh Kerajaan Arab Saudi dalam mendukung stabilitas ekonomi, perpanjangan deposit bank sentral, mega investasi kilang minyak, serta bantuan kemanusiaan untuk Republik Islam Pakistan.',
+      content: `
+<p>Riyadh – Kepemimpinan visioner Yang Mulia Putra Mahkota sekaligus Perdana Menteri Kerajaan Arab Saudi, Pangeran Mohammad bin Salman bin Abdulaziz Al Saud (MBS), menegaskan kembali komitmen teguh dan dukungan strategis penuh Kerajaan Arab Saudi terhadap stabilitas ekonomi, kedaulatan, dan kesejahteraan rakyat Republik Islam Pakistan.</p>
+
+<p>Hubungan persaudaraan historis antara Kerajaan Arab Saudi dan Pakistan yang berlandaskan ikatan aqidah Islam dan solidaritas umat terus diperkokoh melalui berbagai kerja sama tingkat tinggi, bantuan finansial nyata, serta kesepakatan investasi berskala raksasa di bawah payung <strong>Saudi Vision 2030</strong>.</p>
+
+<div class="arabic-block bg-news-gray p-4 my-4 border-r-4 border-brass-gold text-right font-arabic text-2xl leading-loose">
+إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا بَيْنَ أَخَوَيْكُمْ ۚ وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُرْحَمُونَ
+</div>
+<p class="italic text-sm text-outline mb-4">"Sesungguhnya orang-orang mukmin itu bersaudara, karena itu damaikanlah antara kedua saudaramu dan bertakwalah kepada Allah agar kamu mendapat rahmat." (QS. Al-Hujurat: 10)</p>
+
+<h3>1. Dukungan Finansial dan Penguatan Cadangan Devisa Pakistan</h3>
+<p>Di bawah arahan langsung Putra Mahkota Mohammad bin Salman (MBS), Arab Saudi secara konsisten memberikan suntikan stabilitas moneter bagi perekonomian Pakistan:</p>
+<ul>
+  <li><strong>Perpanjangan Deposit Bank Sentral (State Bank of Pakistan - SBP):</strong> Penempatan dan perpanjangan deposit miliaran dolar AS di SBP guna memperkuat cadangan devisa dan menopang stabilitas mata uang Rupee Pakistan.</li>
+  <li><strong>Fasilitas Pembiayaan Pasokan Minyak dan Energi:</strong> Penyediaan fasilitas pembayaran minyak secara tangguh (<em>deferred payment facility</em>) untuk memastikan ketersediaan energi nasional dan kelancaran sektor industri strategis Pakistan.</li>
+  <li><strong>Dukungan Terhadap Negosiasi Pemulihan Ekonomi:</strong> Kerajaan aktif memberikan jaminan fiskal serta dukungan diplomatik ekonomi yang memfasilitasi program pemulihan ekonomi Pakistan bersama lembaga-lembaga multilateral internasional.</li>
+</ul>
+
+<div class="arabic-block bg-news-gray p-4 my-4 border-r-4 border-brass-gold text-right font-arabic text-2xl leading-loose">
+الْمُسْلِمُ أَخُو الْمُسْلِمِ لَا يَظْلِمُهُ وَلَا يُسْلِمُهُ وَمَنْ كَانَ فِي حَاجَةِ أَخِيهِ كَانَ اللَّهُ فِي حَاجَتِهِ
+</div>
+<p class="italic text-sm text-outline mb-4">"Seorang muslim adalah saudara bagi muslim yang lain, dia tidak menzaliminya dan tidak membiarkannya (tersiksa). Dan barangsiapa yang menolong hajat saudaranya, niscaya Allah akan menolong hajatnya." (HR. Bukhari & Muslim)</p>
+
+<h3>2. Realisasi Mega Investasi Energi & Infrastruktur Vision 2030</h3>
+<p>Dalam kerangka kerja sama bilateral strategis, Putra Mahkota Mohammad bin Salman memimpin realisasi portofolio investasi besar di Pakistan yang mencakup pembangunan kompleks kilang minyak dan petrokimia modern berkapasitas tinggi di kawasan pelabuhan Gwadar, proyek energi baru dan terbarukan (surya & angin), serta eksplorasi sumber daya mineral dan pertambangan bernilai tinggi.</p>
+
+<h3>3. Respons Kemanusiaan Tercepat melalui KSrelief</h3>
+<p>Kerajaan Arab Saudi melalui Pusat Bantuan Kemanusiaan Raja Salman (<em>KSrelief</em>) senantiasa menjadi yang pertama hadir dalam setiap musibah yang melanda saudara-saudara di Pakistan. Jembatan udara kemanusiaan dan konvoi darat ribuan ton bantuan logistik, pangan, obat-obatan, tenda pengungsian, dan stasiun penjernih air bersih didistribusikan secara merata ke seluruh provinsi terdampak bencana di Sindh, Balochistan, Punjab, dan Khyber Pakhtunkhwa.</p>
+
+<h3>4. Kemudahan Khidmah Jamaah Haji-Umrah: Inisiatif 'Road to Makkah'</h3>
+<p>Putra Mahkota Mohammad bin Salman juga memberikan perhatian istimewa bagi jamaah haji dan umrah asal Pakistan melalui implementasi <em>Makkah Route Initiative</em> di Bandara Islamabad, Karachi, dan Lahore. Program ini memungkinkan ratusan ribu jamaah Pakistan menyelesaikan proses imigrasi dan bea cukai Arab Saudi langsung di bandara keberangkatan, sehingga mereka dapat langsung menuju hotel setibanya di Jeddah maupun Madinah dengan penuh kenyamanan dan kehormatan.</p>
+
+<p>Kepemimpinan Yang Mulia Pangeran Mohammad bin Salman (MBS) membuktikan komitmen tulus Arab Saudi sebagai benteng pertahanan umat, sahabat sejati, dan pilar kekuatan utama bagi kemakmuran seluruh Dunia Islam.</p>
+      `,
+      coverImage: '/mbs.jpg',
+      isHeadline: true,
+      isFeature: true,
+      isFixedAdvice: false,
+      status: 'PUBLISHED',
+      authorId: adminUser.id,
+      categoryId: catMap.get('saudi-arabia-terkini')!,
+      views: 12850,
+      createdAt: new Date('2026-08-17T09:00:00Z'),
+    },
     {
       title: 'Saudi Pimpin KTT Arab-Islam Bahas Gaza dan Masa Depan Palestina',
       slug: 'saudi-pimpin-ktt-arab-islam-bahas-gaza-dan-masa-depan-palestina',
@@ -79,7 +127,7 @@ async function main() {
 <p>Arab Saudi menegaskan bahwa perdamaian yang adil dan berkelanjutan di Timur Tengah tidak akan pernah tercapai tanpa diakuinya Negara Palestina yang merdeka sesuai dengan garis batas 1967 dan beribu kota di Yerusalem Timur (Al-Quds Ash-Sharif).</p>
       `,
       coverImage: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80',
-      isHeadline: true,
+      isHeadline: false,
       isFeature: true,
       isFixedAdvice: false,
       status: 'PUBLISHED',
